@@ -20,7 +20,8 @@ const Hero6_2 = () => {
                 23% off in all products
               </h1>
               <a
-                className="absolute left-5 top-20 text-[#FB2E86] text-[16px] underline"
+                className="absolute left-5 top-20 
+                text-[#FB2E86] text-[16px] underline"
                 href="#"
               >
                 Shop Now

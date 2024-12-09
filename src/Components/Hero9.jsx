@@ -8,7 +8,7 @@ const SubscribeSection = () => {
       <div className="container mx-auto">
         <div>
           <div
-            className="flex flex-col items-center justify-center h-[300px] bg-cover bg-center"
+            className="flex flex-col items-center justify-center h-[450px] bg-cover bg-center"
             style={{ backgroundImage: `url(${imghero9})` }}
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-[Josefin Sans] text-[#151875] text-center">
