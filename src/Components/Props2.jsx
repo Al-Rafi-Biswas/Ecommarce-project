@@ -2,7 +2,7 @@ import React from "react";
 
 const EcommerceHeader = () => {
   return (
-    <div className="container mx-auto p-4 flex flex-wrap justify-between items-center text-sm sm:text-base">
+    <div className="container mx-auto px-20 p-4 mt-8 flex flex-wrap justify-between items-center text-sm sm:text-base">
       {/* Title */}
       <div>
         <h1 className="text-[#1E3A8A] font-josefin font-semibold">

@@ -1,6 +1,5 @@
 import React from "react";
 import imghero9 from "../assets/Hero9/hero9.png";
-import imghero10 from "../assets/Hero9/hero10.png";
 
 const SubscribeSection = () => {
   return (
@@ -18,9 +17,6 @@ const SubscribeSection = () => {
               Shop Now
             </button>
           </div>
-        </div>
-        <div className="py-6 flex justify-center">
-          <img src={imghero10} alt="" />
         </div>
       </div>
     </section>

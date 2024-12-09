@@ -1,41 +1,31 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import Head from "./Components/Head";
-import Nav from "./Components/Nav";
-import HeroSection from "./Components/Hero1";
-import Footer from "./Components/Footer";
-import LatestBlog from "./Components/LatestBlog";
-import Hero9 from "./Components/Hero9";
-import Hero2 from "./Components/Hero2";
-import Hero3 from "./Components/Hero3";
-import Hero4 from "./Components/Hero4";
-import Hero5 from "./Components/Hero5";
-import Hero6 from "./Components/Hero6";
-import Hero6_2 from "./Components/Hero6_2";
-import Hero7 from "./Components/Hero7";
-import Hero8 from "./Components/Hero8";
+//
+
+import React from "react";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+  Route,
+} from "react-router-dom";
+import Home from "./Pages/Home";
+import Page from "./Pages/Page";
+import Root from "./Components/Root";
+import ShopList from "./Pages/ShopList";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const myRouter = createBrowserRouter(
+    createRoutesFromElements(
+      <Route element={<Root />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/Page" element={<Page />} />
+        <Route path="/Shop1" element={<ShopList />} />
+      </Route>
+    )
+  );
 
   return (
     <>
-      <Head />
-      <Nav />
-      <HeroSection />
-      <Hero2 />
-      <Hero3 />
-      <Hero4 />
-      <Hero5 />
-      <Hero6 />
-      <Hero6_2 />
-      <Hero7 />
-      <Hero8 />
-      <Hero9 />
-      <LatestBlog />
-      <Footer />
+      <RouterProvider router={myRouter} />
     </>
   );
 }
