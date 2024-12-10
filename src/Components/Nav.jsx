@@ -23,30 +23,46 @@ const NavBar = () => {
               onClick={toggleDropdown}
               className="cursor-pointer flex items-center text-pink-500"
             >
-              Home <FaChevronDown className="ml-1 text-sm" />
+              <a href="http://localhost:5173/">Home</a>{" "}
+              <FaChevronDown className="ml-1 text-sm" />
             </span>
             {/* Dropdown Menu */}
             {isDropdownOpen && (
               <div className="absolute left-0 mt-2 bg-white border rounded shadow-lg">
                 <ul className="text-sm text-gray-700">
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  <li className="px-5 py-2 hover:bg-gray-100 cursor-pointer">
                     Item 1
                   </li>
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  <li className="px-5 py-2 hover:bg-gray-100 cursor-pointer">
                     Item 2
                   </li>
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  <li className="px-5 py-2 hover:bg-gray-100 cursor-pointer">
                     Item 3
                   </li>
                 </ul>
               </div>
             )}
           </div>
-          <span>Pages</span>
-          <span>Products</span>
-          <span>Blog</span>
-          <span>Shop</span>
-          <span>Contact</span>
+          <span>
+            {" "}
+            <a href="http://localhost:5173/page">Pages</a>{" "}
+          </span>
+          <span>
+            {" "}
+            <a href="http://localhost:5173/shop1">Products</a>{" "}
+          </span>
+          <span>
+            {" "}
+            <a href="http://"> Blog</a>
+          </span>
+          <span>
+            {" "}
+            <a href="http://localhost:5173/shop2">Shop</a>{" "}
+          </span>
+          <span>
+            {" "}
+            <a href="http://">Contact</a>{" "}
+          </span>
         </div>
 
         {/* Search Box */}
