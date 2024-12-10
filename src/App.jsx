@@ -12,6 +12,8 @@ import Page from "./Pages/Page";
 import Root from "./Components/Root";
 import ShopList from "./Pages/ShopList";
 import ShopList2 from "./Pages/ShopList2";
+import ShopCom from "./Pages/ShopCom";
+import Contact from "./Components/Contact/Login";
 
 function App() {
   const myRouter = createBrowserRouter(
@@ -21,6 +23,8 @@ function App() {
         <Route path="/Page" element={<Page />} />
         <Route path="/Shop1" element={<ShopList />} />
         <Route path="/Shop2" element={<ShopList2 />} />
+        <Route path="/OrderComplete" element={<ShopCom />} />
+        <Route path="/Login" element={<Contact />} />
       </Route>
     )
   );

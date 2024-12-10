@@ -30,8 +30,10 @@ const NavBar = () => {
             {isDropdownOpen && (
               <div className="absolute left-0 mt-2 bg-white border rounded shadow-lg">
                 <ul className="text-sm text-gray-700">
-                  <li className="px-5 py-2 hover:bg-gray-100 cursor-pointer">
-                    Item 1
+                  <li className="px-8 py-2 hover:bg-gray-100 cursor-pointer">
+                    <a href="http://localhost:5173/OrderComplete">
+                      Order complete
+                    </a>
                   </li>
                   <li className="px-5 py-2 hover:bg-gray-100 cursor-pointer">
                     Item 2
@@ -61,7 +63,7 @@ const NavBar = () => {
           </span>
           <span>
             {" "}
-            <a href="http://">Contact</a>{" "}
+            <a href="http://localhost:5173/Login">Contact</a>{" "}
           </span>
         </div>
 
