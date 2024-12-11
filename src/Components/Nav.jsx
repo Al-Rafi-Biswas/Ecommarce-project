@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaChevronDown, FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -23,7 +24,8 @@ const NavBar = () => {
               onClick={toggleDropdown}
               className="cursor-pointer flex items-center text-pink-500"
             >
-              <a href="http://localhost:5173/">Home</a>{" "}
+              {/* <a href="http://localhost:5173/">Home</a>{" "} */}
+              <Link to="/">Home</Link>
               <FaChevronDown className="ml-1 text-sm" />
             </span>
             {/* Dropdown Menu */}
@@ -31,9 +33,7 @@ const NavBar = () => {
               <div className="absolute left-0 mt-2 bg-white border rounded shadow-lg">
                 <ul className="text-sm text-gray-700">
                   <li className="px-8 py-2 hover:bg-gray-100 cursor-pointer">
-                    <a href="http://localhost:5173/OrderComplete">
-                      Order complete
-                    </a>
+                    <Link to="/OrderComplete">Oder complete</Link>
                   </li>
                   <li className="px-5 py-2 hover:bg-gray-100 cursor-pointer">
                     Item 2
@@ -46,24 +46,19 @@ const NavBar = () => {
             )}
           </div>
           <span>
-            {" "}
-            <a href="http://localhost:5173/page">Pages</a>{" "}
+            <Link to="/Page">Page</Link>
           </span>
           <span>
-            {" "}
-            <a href="http://localhost:5173/shop1">Products</a>{" "}
+            <Link to="/Shop1">Product</Link>
           </span>
           <span>
-            {" "}
-            <a href="http://"> Blog</a>
+            <Link to="">Blog</Link>
           </span>
           <span>
-            {" "}
-            <a href="http://localhost:5173/shop2">Shop</a>{" "}
+            <Link to="/Shop2">Shop</Link>
           </span>
           <span>
-            {" "}
-            <a href="http://localhost:5173/Login">Contact</a>{" "}
+            <Link to="/Login">Contact</Link>
           </span>
         </div>
 
