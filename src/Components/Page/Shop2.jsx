@@ -40,6 +40,18 @@ const Shop2 = () => {
 
   // branditems logic.....................
 
+  // priceitem logic....................
+
+  let [PriceItem, setPriceItem] = useState([]);
+  const handelPriceProducts = (low, high) => {
+    let filterPriceProducts = data.filter(
+      (item) => item.price > low && item.price <= high
+    );
+    setPriceItem(filterPriceProducts);
+  };
+
+  // price item logic..................
+
   return (
     <section>
       <div className="container mx-auto px-4 sm:px-8 lg:px-20 mt-5 mb-5">
@@ -78,28 +90,19 @@ const Shop2 = () => {
                   <input type="checkbox" />
                   20% Cashback
                 </li>
-              <li className="flex items-center gap-3 capitalize cursor-pointer text-[16px]">
-                <input
-                type="checkbox"
-                
-                />
-                20% Cashback
+                <li className="flex items-center gap-3 capitalize cursor-pointer text-[16px]">
+                  <input type="checkbox" />
+                  20% Cashback
                 </li>
                 <li className="flex items-center gap-3 capitalize cursor-pointer text-[16px]">
-                <input
-                type="checkbox"
-                
-                />
-                5% Cashback Offer
+                  <input type="checkbox" />
+                  5% Cashback Offer
                 </li>
                 <li className="flex items-center gap-3 capitalize cursor-pointer text-[16px]">
-                <input
-                type="checkbox"
-                
-                />
-                25% Discount Offer
+                  <input type="checkbox" />
+                  25% Discount Offer
                 </li>
-                </ul>
+              </ul>
             </div>
 
             {/* Rating Item Section */}
@@ -187,20 +190,36 @@ const Shop2 = () => {
             </h2>
             <div className="space-y-4 text-[#FF3EB2] text-md font-[Lato]">
               <label className="flex items-center">
-                <input type="checkbox" className="mr-2" />
-                15000$ - 20000$
+                <input
+                  type="checkbox"
+                  onChange={() => handelPriceProducts(0, 100.0)}
+                  className="mr-2"
+                />
+                0.00$ - 100.00$
               </label>
               <label className="flex items-center">
-                <input type="checkbox" className="mr-2" />
-                10000$ - 15000$
+                <input
+                  type="checkbox"
+                  onChange={() => handelPriceProducts(100.01, 200)}
+                  className="mr-2"
+                />
+                100.01$ - 200.00$
               </label>
               <label className="flex items-center">
-                <input type="checkbox" className="mr-2" />
-                5000$ - 10000$
+                <input
+                  type="checkbox"
+                  onChange={() => handelPriceProducts(200.01, 500)}
+                  className="mr-2"
+                />
+                200.01$ - 500$
               </label>
               <label className="flex items-center">
-                <input type="checkbox" className="mr-2" />
-                1000$ - 5000$
+                <input
+                  type="checkbox"
+                  onChange={() => handelPriceProducts(500.01, 1500)}
+                  className="mr-2"
+                />
+                500.01$ - 15000$
               </label>
               <label className="flex items-center">
                 <input
@@ -327,7 +346,8 @@ const Shop2 = () => {
                     </div>
                   </div>
                 ))
-              : data.map((item) => (
+              : PriceItem.length > 0
+              ? PriceItem.map((item) => (
                   <div
                     key={item.id}
                     className="flex flex-col items-center shadow-md p-4 mb-8 w-[313px] bg-white rounded-lg"
@@ -387,10 +407,8 @@ const Shop2 = () => {
                       </div>
                     </div>
                   </div>
-                ))}
-
-            {/* brand item er jonno */}
-            {brandItem.length > 0
+                ))
+              : brandItem.length > 0
               ? brandItem.map((item) => (
                   <div
                     key={item.id}
@@ -513,7 +531,6 @@ const Shop2 = () => {
                     </div>
                   </div>
                 ))}
-
           </div>
         </div>
       </div>

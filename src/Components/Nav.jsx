@@ -1,6 +1,7 @@
-import React, { useState } from "react";
 import { FaChevronDown, FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { apiData } from "./ContaxtApi";
+import React, { useState, useContext } from "react";
 
 const NavBar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -8,6 +9,26 @@ const NavBar = () => {
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+  // search bar er jonno.....................
+  let data = useContext(apiData);
+
+  let [searchResults, setSearchResults] = useState([]);
+
+  const handelSearch = (e) => {
+    let filteredProducts = data.filter((item) =>
+      item.title.toLowerCase().startsWith((e.target.value).toLowerCase())
+    );
+    setSearchResults(filteredProducts);
+    if(e.target.value == ''){
+      setSearchResults ([])
+    }
+  };
+  console.log(searchResults);
+  
+  
+
+  // search bar er jonno..........
 
   return (
     <nav className="w-full bg-white">
@@ -63,12 +84,24 @@ const NavBar = () => {
         </div>
 
         {/* Search Box */}
-        <div className="flex border rounded-lg overflow-hidden">
+        <div className="flex border relative rounded-lg ">
           <input
+            onChange={handelSearch}
             type="text"
             placeholder="Search"
             className="px-4 py-1 outline-none"
           />
+          {searchResults.length > 0 && 
+            <div className="absolute z-50 top-10 left-0 h-[500px] overflow-y-scroll bg-slate-500">
+              {searchResults.map((item) => (
+                <div key={item.id} className="flex items-center">
+                  <img className="w-20" src={item.thumbnail} alt="" />
+                  <h3>{item.title}</h3>
+                </div>
+              ))}
+            </div>
+          }
+
           <button className="bg-pink-500 text-white px-4 py-1">
             <FaSearch />
           </button>
