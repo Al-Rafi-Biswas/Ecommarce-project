@@ -15,7 +15,9 @@ import ShopList2 from "./Pages/ShopList2";
 import ShopCom from "./Pages/ShopCom";
 import Contact from "./Components/Contact/Login";
 import CartDetails from "./Pages/CartDetails";
-import CheakOutPage from "./Pages/CheakOutpage";
+// import CheakOutPage from "./Pages/CheakOutpage";
+import CheakOutpage from "./Pages/CheakOutpage"; // Ensure correct path and filename
+
 import Registation from "./Pages/Registation";
 import ContactPage from "./Pages/ContactPage";
 import ErrorPage from "./Pages/ErrorPage";
@@ -33,7 +35,7 @@ function App() {
         <Route path="/OrderComplete" element={<ShopCom />} />
         <Route path="/Login" element={<Contact />} />
         <Route path="/Cart" element={<CartDetails />} />
-        <Route path="/CheckOut" element={<CheakOutPage />} />
+        <Route path="/CheckOut" element={<CheakOutpage />} />
         <Route path="/SignUp" element={<Registation />} />
         <Route path="/ContactP" element={<ContactPage />} />
         <Route path="/Page404" element={<ErrorPage />} />
