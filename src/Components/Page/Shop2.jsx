@@ -7,8 +7,12 @@ import {
   FaRegStar,
   FaSearch,
 } from "react-icons/fa"; // Icons for product actions
+import { ToastContainer, toast } from 'react-toastify';
 
-const Shop2 = () => {
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Slices/CartSlice";
+
+const Shop2 = ({ currentPageProducts }) => {
   const data = useContext(apiData); // Using correct context
   // categoryitems logic.....................
   let [category, setCategory] = useState([]);
@@ -49,8 +53,31 @@ const Shop2 = () => {
     );
     setPriceItem(filterPriceProducts);
   };
+  console.log(currentPageProducts);
 
   // price item logic..................
+  // if(currentPageProducts.length >0 ){
+  //   console.log(currentPageProducts);
+
+  // }
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (item) => {
+    dispatch(addToCart({ ...item, qty: 1 }));
+
+    toast.success('Added to cart!', {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+
+  };
 
   return (
     <section>
@@ -470,10 +497,10 @@ const Shop2 = () => {
                     </div>
                   </div>
                 ))
-              : data.map((item) => (
+              : currentPageProducts.map((item) => (
                   <div
                     key={item.id}
-                    className="flex flex-col items-center shadow-md p-4 mb-8 w-[313px] bg-white rounded-lg"
+                    className="shadow-md p-4 mb-8 w-[313px] bg-white rounded-lg"
                   >
                     {/* Product Image */}
                     <div className="w-full h-[217px] overflow-hidden mb-4 rounded-lg">
@@ -524,7 +551,23 @@ const Shop2 = () => {
 
                       {/* Icons for Cart, Wishlist, and Additional Actions */}
                       <div className="flex gap-4 justify-center mb-3">
-                        <FaShoppingCart className="hover:text-[#FB2E86] cursor-pointer" />
+                        <FaShoppingCart
+                          onClick={() => handleAddToCart(item)}
+                          className="hover:text-[#FB2E86] cursor-pointer"
+                        />
+                        <ToastContainer
+                          position="top-right"
+                          autoClose={5000}
+                          hideProgressBar={false}
+                          newestOnTop={false}
+                          closeOnClick={false}
+                          rtl={false}
+                          pauseOnFocusLoss
+                          draggable
+                          pauseOnHover
+                          theme="light"
+                        
+                        />
                         <FaHeart className="hover:text-[#FB2E86] cursor-pointer" />
                         <FaSearch className="hover:text-[#FB2E86] cursor-pointer" />
                       </div>

@@ -17,16 +17,14 @@ const NavBar = () => {
 
   const handelSearch = (e) => {
     let filteredProducts = data.filter((item) =>
-      item.title.toLowerCase().startsWith((e.target.value).toLowerCase())
+      item.title.toLowerCase().startsWith(e.target.value.toLowerCase())
     );
     setSearchResults(filteredProducts);
-    if(e.target.value == ''){
-      setSearchResults ([])
+    if (e.target.value == "") {
+      setSearchResults([]);
     }
   };
   console.log(searchResults);
-  
-  
 
   // search bar er jonno..........
 
@@ -57,10 +55,13 @@ const NavBar = () => {
                     <Link to="/OrderComplete">Oder complete</Link>
                   </li>
                   <li className="px-5 py-2 hover:bg-gray-100 cursor-pointer">
-                    Item 2
+                    <Link to="">Product Details</Link>
                   </li>
                   <li className="px-5 py-2 hover:bg-gray-100 cursor-pointer">
-                    Item 3
+                    <Link to="/FaqForm">FAQ-Page</Link>
+                  </li>
+                  <li className="px-5 py-2 hover:bg-gray-100 cursor-pointer">
+                    <Link to="/Page404">404 page</Link>
                   </li>
                 </ul>
               </div>
@@ -73,13 +74,13 @@ const NavBar = () => {
             <Link to="/Shop1">Product</Link>
           </span>
           <span>
-            <Link to="">Blog</Link>
+            <Link to="/Blog">Blog</Link>
           </span>
           <span>
             <Link to="/Shop2">Shop</Link>
           </span>
           <span>
-            <Link to="/Login">Contact</Link>
+            <Link to="/ContactP">Contact</Link>
           </span>
         </div>
 
@@ -91,7 +92,7 @@ const NavBar = () => {
             placeholder="Search"
             className="px-4 py-1 outline-none"
           />
-          {searchResults.length > 0 && 
+          {searchResults.length > 0 && (
             <div className="absolute z-50 top-10 left-0 h-[500px] overflow-y-scroll bg-slate-500">
               {searchResults.map((item) => (
                 <div key={item.id} className="flex items-center">
@@ -100,7 +101,7 @@ const NavBar = () => {
                 </div>
               ))}
             </div>
-          }
+          )}
 
           <button className="bg-pink-500 text-white px-4 py-1">
             <FaSearch />

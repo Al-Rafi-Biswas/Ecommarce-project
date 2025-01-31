@@ -1,7 +1,6 @@
 import React from "react";
 import Props1 from "../Components/Props1";
 import Props2 from "../Components/Props2";
-import Shop2 from "../Components/Page/Shop2";
 import Pagination from "../Components/Page/Pagination";
 
 const ShopList = () => {
@@ -15,7 +14,7 @@ const ShopList = () => {
           li3=". Shoplist"
         />
         <Props2 />
-        <Shop2 />
+      
         <Pagination />
       </div>
     </>
