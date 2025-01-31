@@ -6,7 +6,9 @@ import { ContaxtApi } from "./Components/ContaxtApi.jsx"; // Corrected import
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Provider } from "react-redux";
-import Store from "./Store.js";
+
+import Store from "./store.js";
+
 import firebaseConfig from "./firebase.config.js";
 
 createRoot(document.getElementById("root")).render(
